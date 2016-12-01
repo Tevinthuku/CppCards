@@ -83,7 +83,7 @@ export default class Introduction extends React.Component {
               label="The code"
               fullWidth={true}
               secondary={true}
-              href="https://guides.github.com/activities/contributing-to-open-source/"
+              href="https://github.com/Tevinthuku/CppCards"
               target='_blank'
             />
 
