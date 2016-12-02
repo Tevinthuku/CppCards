@@ -6,7 +6,6 @@ injectTapEventPlugin();
 // importing the component
 import App from './App';
 import './index.css';
-import './highlight.css';
 
 ReactDOM.render(
   <App />,

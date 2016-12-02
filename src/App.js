@@ -15,6 +15,7 @@ import './App.css';
 // the code Cards
 import Introduction from './codecards/introduction';
 import Arrays from './codecards/Arrays';
+import Pointers from './codecards/Pointers';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleArrayslink = this.handleArrayslink.bind(this);
     this.handleIntroductionlink = this.handleIntroductionlink.bind(this);
+    this.handlePointerslink = this.handlePointerslink.bind(this);
   }
 
   handleChange(value) {
@@ -33,13 +35,21 @@ export default class App extends React.Component {
       slideIndex: value,
     });
   };
+  // pointers link
+  handlePointerslink(value) {
+    this.setState({
+      slideIndex: 2,
+    });
+  };
 
+// array link
   handleArrayslink(value) {
     this.setState({
       slideIndex: 1,
     });
   };
 
+ // introduction link
   handleIntroductionlink(value) {
     this.setState({
       slideIndex:0,
@@ -66,6 +76,10 @@ export default class App extends React.Component {
           onTouchTap={this.handleArrayslink}
           primaryText="Arrays"
         />
+        <MenuItem
+          onTouchTap={this.handlePointerslink}
+          primaryText="Pointers"
+        />
       </IconMenu>
     )
     : '';
@@ -88,11 +102,17 @@ export default class App extends React.Component {
                 index={this.state.slideIndex}
                 onChangeIndex={this.handleChange}
               >
+                {/* Introduction */}
                 <div>
                   <Introduction />
                 </div>
+                {/* arrays */}
                 <div>
                   <Arrays />
+                </div>
+                {/* pointers */}
+                <div>
+                  <Pointers />
                 </div>
             </SwipeableViews>
           </section>
