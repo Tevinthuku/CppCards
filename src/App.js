@@ -5,7 +5,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Headroom from 'react-headroom';
@@ -16,6 +16,7 @@ import './App.css';
 import Introduction from './codecards/introduction';
 import Arrays from './codecards/Arrays';
 import Pointers from './codecards/Pointers';
+import Classesandobjects from './codecards/Classesandobjects';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,11 +29,20 @@ export default class App extends React.Component {
     this.handleArrayslink = this.handleArrayslink.bind(this);
     this.handleIntroductionlink = this.handleIntroductionlink.bind(this);
     this.handlePointerslink = this.handlePointerslink.bind(this);
+    this.handleClassesandObjectslink = this.handleClassesandObjectslink.bind(this);
   }
 
+  // handle change of the SwipeableViews
   handleChange(value) {
     this.setState({
       slideIndex: value,
+    });
+  };
+
+  // classes and objects link
+  handleClassesandObjectslink(value) {
+    this.setState({
+      slideIndex: 3,
     });
   };
   // pointers link
@@ -80,6 +90,10 @@ export default class App extends React.Component {
           onTouchTap={this.handlePointerslink}
           primaryText="Pointers"
         />
+        <MenuItem
+          onTouchTap={this.handleClassesandObjectslink}
+          primaryText="Classesandobjects"
+        />
       </IconMenu>
     )
     : '';
@@ -87,34 +101,41 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <section>
             <section>
               <Headroom>
                 <AppBar
+                  zDepth={0}
                   title="Cpp Cards"
                   showMenuIconButton={false}
                   iconElementRight={menuicons}
                 />
               </Headroom>
             </section>
-            <SwipeableViews
-                index={this.state.slideIndex}
-                onChangeIndex={this.handleChange}
-              >
-                {/* Introduction */}
-                <div>
-                  <Introduction />
-                </div>
-                {/* arrays */}
-                <div>
-                  <Arrays />
-                </div>
-                {/* pointers */}
-                <div>
-                  <Pointers />
-                </div>
-            </SwipeableViews>
+            <div className="background-swipes">
+              <SwipeableViews
+                  index={this.state.slideIndex}
+                  onChangeIndex={this.handleChange}
+                >
+                  {/* Introduction */}
+                  <div>
+                    <Introduction />
+                  </div>
+                  {/* arrays */}
+                  <div>
+                    <Arrays />
+                  </div>
+                  {/* pointers */}
+                  <div>
+                    <Pointers />
+                  </div>
+                  {/* classes and objects */}
+                  <div>
+                    <Classesandobjects />
+                  </div>
+              </SwipeableViews>
+          </div>
           </section>
         </MuiThemeProvider>
       </div>

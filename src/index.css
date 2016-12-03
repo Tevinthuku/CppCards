@@ -2,4 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#1a82f7), to(#2F2727));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #2F2727, #028394);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #2F2727, #028394);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #2F2727, #028394);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #2F2727, #028394);
 }
