@@ -5,24 +5,42 @@ import Avatar from 'material-ui/Avatar';
 import ReactMarkdown from 'react-markdown';
 import RaisedButton from 'material-ui/RaisedButton';
 
+
 // the markdown text
-const introductiontext = `
-## Hello,
-<p>This are twitter like cards meant to help you learn <b>C++</b></p>
+const newkeywordtext = `
+### The new Keyword : TL:DR
 
-### About
-<p>They will have a brief summary of the main concepts in <b>C++</b>.
+We use the new keyword in most cases when creating an object / an array of objects from a class and yet you want memory allocated to it. (i.e: the objects or the array).
 
-### How to use this software
-- On mobile: Swipe left of right / Hit the icon in the app-bar to drop down a menu of what is in the app.
+###### NB: There's an example in the code sample
 
-- On desktop:  Hit the icon in the app-bar to drop down a menu of what is in the app.
+#### The catch:
+If you are to use the new keyword. You must accompany it with the delete keyword to deallocate memory from the object or array.
+<p>
+If not you will have a <b>memory leak</b>
+</p>
 
-#### Do you want to contribute to the content ?
+#### What is a memory leak.
+This is where an object is still stored in the memory but cannot be accessed by the currently running code.
+
+<p>
+C++ does not have an automatic garbage collector so we need to deallocate the memory manually
+
+</p>
+
+#### Garbage collection??
+This is the act of deallocating memory. (ie: Getting rid of the objects that are still in memory but are not being used)
+<p>
+One way of doing this is by using the <b>delete</b>
+Keyword
+</p>
+
+An example is in the code. Press the link below
 
 `;
 
-export default class Introduction extends React.Component {
+
+export default class Newkeyword extends React.Component {
 
   constructor(props) {
     super(props);
@@ -57,31 +75,23 @@ export default class Introduction extends React.Component {
           onExpandChange={this.handleExpandChange}
         >
           <CardHeader
-            title="Introduction"
-            subtitle="By Tevin Thuku"
-            avatar={<Avatar>I</Avatar>}
+            title="New Keyword"
+            subtitle="By Tevin Thuku Of House Stark"
+            avatar={<Avatar>N</Avatar>}
             actAsExpander={true}
             showExpandableButton={true}
           />
           <CardText>
           </CardText>
           <CardText expandable={true}>
-            <ReactMarkdown source={introductiontext} />
+            <ReactMarkdown source={newkeywordtext} />
             <div style={{height: 20}}/>
-            {/* contributing button link */}
+
             <RaisedButton
-              label="Contributing"
+              label="Code Example"
               fullWidth={true}
               primary={true}
-              href="https://guides.github.com/activities/contributing-to-open-source/"
-              target='_blank'
-            />
-            <div style={{height: 5}}/>
-            <RaisedButton
-              label="The code"
-              fullWidth={true}
-              secondary={true}
-              href="https://github.com/Tevinthuku/CppCards"
+              href="https://gist.github.com/Tevinthuku/85b6062e8cb6c236a3c602ad58a5a214"
               target='_blank'
             />
 

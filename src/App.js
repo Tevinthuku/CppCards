@@ -17,6 +17,7 @@ import Introduction from './codecards/introduction';
 import Arrays from './codecards/Arrays';
 import Pointers from './codecards/Pointers';
 import Classesandobjects from './codecards/Classesandobjects';
+import Newkeyword from './codecards/Newkeyword';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,12 +31,20 @@ export default class App extends React.Component {
     this.handleIntroductionlink = this.handleIntroductionlink.bind(this);
     this.handlePointerslink = this.handlePointerslink.bind(this);
     this.handleClassesandObjectslink = this.handleClassesandObjectslink.bind(this);
+    this.handleNewkeywordlink = this.handleNewkeywordlink.bind(this);
   }
 
   // handle change of the SwipeableViews
   handleChange(value) {
     this.setState({
       slideIndex: value,
+    });
+  };
+
+  // newkeyword link
+  handleNewkeywordlink(value) {
+    this.setState({
+      slideIndex: 4,
     });
   };
 
@@ -94,6 +103,10 @@ export default class App extends React.Component {
           onTouchTap={this.handleClassesandObjectslink}
           primaryText="Classesandobjects"
         />
+        <MenuItem
+          onTouchTap={this.handleNewkeywordlink}
+          primaryText="New Keyword"
+        />
       </IconMenu>
     )
     : '';
@@ -133,6 +146,10 @@ export default class App extends React.Component {
                   {/* classes and objects */}
                   <div>
                     <Classesandobjects />
+                  </div>
+                  {/* new keyword */}
+                  <div>
+                    <Newkeyword />
                   </div>
               </SwipeableViews>
           </div>
